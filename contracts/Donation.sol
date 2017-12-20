@@ -4,27 +4,21 @@ contract Donation{
 
     mapping (address => string) addressOf;
 
-    address charityAddress;
-    string charityName;
-    uint gasNeeded;
-    uint gasPrice;
+    address public charityAddress;
+    string public charityName;
 
     event Donated(address donator, uint256 amount);
 
     function Donation(address _charityAddress, string _charityName) public {
         charityAddress = _charityAddress;
         charityName = _charityName;
-        gasNeeded = 25000;
-        gasPrice = 21000000000; //gwei
     }
 
     function donateEth() public payable returns (bool success){
-        uint256 amount = (msg.value/(1 finney));
-        require(amount >= gasPrice * gasNeeded);
-        uint amountDonation = amount - (gasPrice * gasNeeded);
-        require(charityAddress.send(amountDonation));
+        uint256 amount = msg.value;
+        require(charityAddress.send(amount));
 
-        Donated(msg.sender, amountDonation);
+        Donated(msg.sender, (amount * 1 ether));
         return true;
     }
 }
