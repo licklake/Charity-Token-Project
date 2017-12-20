@@ -18,10 +18,6 @@ contract Donation{
         gasPrice = 21000000000; //gwei
     }
 
-    function getCurrentCharity() public returns (string charity, string destination) {
-        return (charityName, destination);
-    }
-
     function donateEth() public payable returns (bool success){
         uint256 amount = (msg.value/(1 finney));
         require(amount >= gasPrice * gasNeeded);
