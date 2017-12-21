@@ -1,0 +1,8 @@
+truffle*
+migrations/1_initial_migration.js
+contracts/Migrations.sol
+build/contracts/Migrations.json
+build/contracts/Donation.json
+build/contracts/CharityToken.json
+build/contracts/Main.json
+build/contracts/SafeMath.json

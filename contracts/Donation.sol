@@ -18,7 +18,7 @@ contract Donation{
         uint256 amount = msg.value;
         require(charityAddress.send(amount));
 
-        Donated(msg.sender, (amount * 1 ether));
+        Donated(msg.sender, (amount / 1 ether));
         return true;
     }
 }
