@@ -13,12 +13,4 @@ contract Donation{
         charityAddress = _charityAddress;
         charityName = _charityName;
     }
-
-    function donateEth() public payable returns (bool success){
-        uint256 amount = msg.value;
-        require(charityAddress.send(amount));
-
-        Donated(msg.sender, (amount / 1 ether));
-        return true;
-    }
 }
